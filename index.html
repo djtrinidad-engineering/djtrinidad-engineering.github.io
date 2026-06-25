@@ -188,15 +188,49 @@ header nav a, .nav-links a {
 
 /* Fixes the hero image scaling on mobile devices */
 .hero img, .hero-image img, .hero-right img {
-    /* Fixes the hero image scaling on mobile devices */
-    .hero img, .hero-image img, .hero-right img {
-        width: 100% !important;
-        height: 300px !important; /* Forces it out of that thin strip */
-        object-fit: cover !important;
-        object-position: center !important;
-        margin-top: 24px !important; /* Adds clean separation from the buttons above */
-    }
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    margin-top: 24px !important;
 }
+
+/* 4. Force the Contact Section to stack vertically */
+.contact-split, .contact-grid, .contact-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 32px !important;
+    width: 100% !important;
+}
+
+/* Makes both the info side and the form side take full width */
+.contact-info, .contact-form, [class*="contact"] > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Forces all form text inputs and textareas to stay inside the mobile screen boundaries */
+input, textarea, .form-control {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* 5. Clean up and center the Footer layout on mobile */
+footer {
+    padding: 40px 16px !important;
+    text-align: center !important;
+}
+
+footer div, footer .footer-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+}
+
+} /* <-- This closing bracket closes your entire mobile media query perfectly! */
+</style>
     </style>
 </head>
 <body>
