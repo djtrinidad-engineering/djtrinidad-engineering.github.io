@@ -218,11 +218,25 @@
         font-size: 24px !important;
         line-height: 1.2 !important;
     }
+/* 3b. Corrects the hero gallery wrapper and absolute image scaling */
+.hero-image-wrapper {
+    height: 320px !important;
+    width: 100% !important;
+    margin-top: 32px !important; /* Safely pushes the black box below the buttons */
+    position: relative !important;
+}
 
-    .hero-image-wrapper {
-        height: 280px !important;
-        width: 100% !important;
-    }
+.hero-image-wrapper img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    margin: 0 !important; /* Resets internal spacing so images aren't hidden */
+}
+    
 
     /* 4. About Section mobile formatting */
     .about-grid {
