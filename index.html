@@ -135,7 +135,7 @@
         .modal-images img { width: 100%; height: auto; border: 2px solid var(--vb-black); }
         .modal-images h3 { border-bottom: 2px solid var(--vb-black); padding-bottom: 8px; margin-bottom: 16px; }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     /* 1. Prevent global horizontal shifting and secure edge alignment */
     html, body {
         overflow-x: hidden !important;
@@ -146,7 +146,7 @@
         padding: 48px 20px !important;
     }
 
-    /* 2. Center Top Navigation Header and keep it proportional */
+    /* 2. Center Top Navigation Header and keep it proportional on all portable screens */
     header {
         width: 100% !important;
         position: fixed !important;
@@ -183,20 +183,20 @@
         flex-direction: row !important;
         justify-content: center !important;
         flex-wrap: wrap !important; 
-        gap: 12px !important; 
+        gap: 16px !important; 
         width: 100% !important;
         padding: 0 !important;
     }
 
     .nav-links a {
-        font-size: 12px !important;
+        font-size: 13px !important;
     }
 
     /* 3. Re-scale typography & stack Hero element layout vertically */
     .hero {
         flex-direction: column !important;
         min-height: auto !important;
-        padding-top: 170px !important; /* Prevents content from sliding under fixed nav */
+        padding-top: 160px !important; /* Prevents content from sliding under fixed nav */
         gap: 32px !important;
         text-align: center !important;
     }
@@ -210,49 +210,36 @@
     }
 
     h1 {
-        font-size: 30px !important;
+        font-size: 34px !important;
         line-height: 1.15 !important;
     }
     
     h2 {
-        font-size: 24px !important;
+        font-size: 26px !important;
         line-height: 1.2 !important;
     }
 
-    /* 3a. Force the main Hero container to stack vertically on mobile */
-    .hero {
-        flex-direction: column !important;
-        min-height: auto !important;
-        padding-top: 180px !important; /* Pushes layout down so it doesn't hide behind the header */
-        gap: 32px !important;
-        text-align: center !important;
-    }
-    .hero-content {
+    /* 3b. Corrects the hero gallery wrapper and absolute image scaling */
+    .hero-image-wrapper {
+        flex: none !important; /* Disables desktop flex properties from squashing the box */
+        height: 380px !important; /* Slightly taller for gorgeous tablet widescreen displays */
         width: 100% !important;
+        margin-top: 24px !important;
+        position: relative !important;
+    }
+
+    .hero-image-wrapper img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        margin: 0 !important;
     }
     
-/* 3b. Corrects the hero gallery wrapper and absolute image scaling */
-.hero-image-wrapper {
-    flex: none !important; /* Disables desktop flex properties from squashing the box */
-    height: 320px !important;
-    width: 100% !important;
-    margin-top: 32px !important; /* Safely pushes the black box below the buttons */
-    position: relative !important;
-}
-
-.hero-image-wrapper img {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    margin: 0 !important; /* Resets internal spacing so images aren't hidden */
-}
-    
-
-    /* 4. About Section mobile formatting */
+    /* 4. About Section mobile and tablet formatting */
     .about-grid {
         display: flex !important;
         flex-direction: column !important;
@@ -261,15 +248,15 @@
 
     .about-grid img {
         width: 100% !important;
-        height: 320px !important;
+        height: 380px !important;
         object-fit: cover !important;
         object-position: center !important;
     }
 
-    /* 5. Secure standard content cards */
+    /* 5. Smart Adaptive Cards (Automatically displays 1 column on phones, 2 columns on iPads) */
     .grid-container {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)) !important;
+        gap: 24px !important;
     }
 
     .card img {
@@ -285,7 +272,7 @@
     }
 
     .contact-right form div {
-        grid-template-columns: 1fr !important; /* Stacks First Name & Last Name inputs */
+        grid-template-columns: 1fr !important;
         gap: 16px !important;
     }
 
@@ -315,8 +302,8 @@
 
     /* 8. Optimize project popup modals for fluid container scaling */
     .modal-content {
-        margin: 15% auto !important;
-        padding: 24px !important; /* Cuts massive desktop padding to gain layout room */
+        margin: 6% auto !important; /* Positions cleaner on tall tablet screens */
+        padding: 32px 24px !important;
         width: 92% !important;
         max-width: 92% !important;
         border: 2px solid var(--vb-black) !important;
