@@ -218,6 +218,19 @@
         font-size: 24px !important;
         line-height: 1.2 !important;
     }
+
+    /* 3a. Force the main Hero container to stack vertically on mobile */
+    .hero {
+        flex-direction: column !important;
+        min-height: auto !important;
+        padding-top: 180px !important; /* Pushes layout down so it doesn't hide behind the header */
+        gap: 32px !important;
+        text-align: center !important;
+    }
+    .hero-content {
+        width: 100% !important;
+    }
+    
 /* 3b. Corrects the hero gallery wrapper and absolute image scaling */
 .hero-image-wrapper {
     height: 320px !important;
